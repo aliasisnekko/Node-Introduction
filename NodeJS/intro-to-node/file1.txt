@@ -1,0 +1,2 @@
+I hate file two
+ -file1.txt

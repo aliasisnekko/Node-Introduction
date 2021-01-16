@@ -1,0 +1,2 @@
+const fs = require("fs"); //fs means file system and has a documentation for info and must always be done first
+fs.copyFileSync("file1.txt", "file2.txt"); //takes file1.txt and copies content to file2.txt which gets created if there isnt one when code is ran in node
