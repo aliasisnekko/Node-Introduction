@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true })); //this is necessary to use/parse/read through our documents post request
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + "index.html"); //this grabs/gets our index file from the current directory and sends it to our server to be printed
+    res.sendFile(__dirname + "/index.html"); //this grabs/gets our index file from the current directory and sends it to our server to be printed
 });
 app.post("/", function(req, res) { //this grabs our button/post method so we can affect it
     const query = req.body.cityName; //this is what gets intered into our html doc
