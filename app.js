@@ -9,7 +9,7 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + "/index.html"); //this grabs/gets our index file from the current directory and sends it to our server to be printed
 });
 app.post("/", function(req, res) { //this grabs our button/post method so we can affect it
-    const query = req.body.cityName; //this is what gets intered into our html doc
+    var query = req.body.cityName; //this is what gets entered into our html doc
     const apiKey = "f5d7c24a7ecdef3e61276af6ce48a93d";
     const units = "imperial";
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + units;
@@ -26,9 +26,9 @@ app.post("/", function(req, res) { //this grabs our button/post method so we can
             const location = weatherData.name;
             const icon = weatherData.weather[0].icon;
             const imageURL = ("https://openweathermap.org/img/wn/" + icon + "@2x.png") // this came from docs we just added our own icon to the api endpoint
-            res.write("<h1>" + "The temperature in " + location + " is " + temp + " degrees fahrenheit" + "</h1>")
-            res.write("<p>The weather is currently " + weatherDescription + "</p>") //only one res.send can be send per app per page so this is how we get around that
-            res.write("<img src=" + imageURL + ">");
+            res.write("<h1 style='text-align:center'>" + "The temperature in " + location + " is " + temp + " degrees fahrenheit" + "</h1>")
+            res.write("<p style='text-align:center'>The weather is currently " + weatherDescription + "</p>") //only one res.send can be send per app per page so this is how we get around that
+            res.write("<div style='text-align:center'><img src=" + imageURL + "></div>");
             res.send();
         })
     })
